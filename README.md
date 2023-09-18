@@ -2,7 +2,7 @@
 
 A fork of https://github.com/balavishnuvj/remix-seo with some added bug fixes and features.
 
-Collection of SEO utilities like sitemap, robots.txt, etc. for a [Remix](https://remix.run/)
+Collection of SEO utilities like sitemap, robots.txt, etc. for a [Remix](https://remix.run/) application.
 
 # Features
 
