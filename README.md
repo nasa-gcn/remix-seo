@@ -23,7 +23,7 @@ Add a sitemap and a robots.txt file to your site by adding [resource routes](htt
 
 ## Sitemap
 
-Add to your project a route moodule called `app/routes/sitemap[.]xml.ts` with the following contents.
+Add to your project a route module called `app/routes/sitemap[.]xml.ts` with the following contents.
 
 ```ts
 import { routes } from "@remix-run/dev/server-build";
