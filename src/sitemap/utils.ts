@@ -33,7 +33,7 @@ async function getSitemapXml(
   }: SitemapEntry) {
     return `
   <url>
-    <loc>${siteUrl}${route}</loc>
+    <loc>${siteUrl}/${route}</loc>
     ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}
     ${changefreq ? `<changefreq>${changefreq}</changefreq>` : ""}
     ${typeof priority === "number" ? `<priority>${priority}</priority>` : ""}
@@ -77,7 +77,7 @@ async function getSitemapXml(
           const parentPath = parent.path
             ? removeTrailingSlash(parent.path)
             : "";
-          path = `${parentPath}/${path}`;
+          if (path && parentPath) path = `${parentPath}/${path}`;
           parentId = parent.parentId;
           parent = parentId ? routes[parentId] : null;
         }
@@ -87,7 +87,7 @@ async function getSitemapXml(
         if (path.includes(":")) return;
         if (id === "root") return;
 
-        const entry: SitemapEntry = { route: removeTrailingSlash(path) };
+        const entry: SitemapEntry = { route: path };
         return entry;
       })
     )
