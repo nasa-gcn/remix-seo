@@ -1,5 +1,5 @@
 {
-  "name": "@nasa-gcn/remix-seo",
+  "name": "@kink-engineering/remix-seo",
   "version": "2.0.1",
   "description": "Collection of SEO utilities like sitemap, robots.txt, etc. for a Remix application. A fork of https://github.com/balavishnuvj/remix-seo with some added bug fixes and features.",
   "main": "./build/index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "github:nasa-gcn/remix-seo"
+    "url": "https://github.com/Kink-Engineering/remix-seo.git"
   },
   "keywords": [
     "remix",
