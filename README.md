@@ -1,3 +1,5 @@
+[![NPM Version](https://img.shields.io/npm/v/%40nasa-gcn%2Fremix-seo)](https://www.npmjs.com/package/@nasa-gcn/remix-seo)
+
 # Remix SEO
 
 A fork of https://github.com/balavishnuvj/remix-seo with some added bug fixes and features.
