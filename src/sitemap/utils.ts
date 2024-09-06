@@ -60,6 +60,12 @@ async function getSitemapXml(
           console.warn(`Could not find a manifest entry for ${id}`);
           return;
         }
+
+        // pathless layouts are not included
+        if (!manifestEntry.path && !manifestEntry.index) {
+          return;
+        }
+
         let parentId = manifestEntry.parentId;
         let parent = parentId ? routes[parentId] : null;
 
@@ -73,11 +79,15 @@ async function getSitemapXml(
         }
 
         while (parent) {
-          // the root path is '/', so it messes things up if we add another '/'
-          const parentPath = parent.path
-            ? removeTrailingSlash(parent.path)
-            : "";
-          path = `${parentPath}/${path}`;
+          // only add the parent path if it has a path
+          if (parent.path) {
+            // the root path is '/', so it messes things up if we add another '/'
+            const parentPath = parent.path
+              ? removeTrailingSlash(parent.path)
+              : "";
+            path = `${parentPath}/${path}`;
+          }
+
           parentId = parent.parentId;
           parent = parentId ? routes[parentId] : null;
         }
@@ -87,7 +97,9 @@ async function getSitemapXml(
         if (path.includes(":")) return;
         if (id === "root") return;
 
-        const entry: SitemapEntry = { route: removeTrailingSlash(path) };
+        // const entry: SitemapEntry = { route: removeTrailingSlash(path) };
+        const entry: SitemapEntry = { route: `/${removeTrailingSlash(path)}` };
+
         return entry;
       })
     )
