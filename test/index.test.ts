@@ -1,4 +1,4 @@
-import { type ServerRouteManifest } from "@remix-run/server-runtime/routes";
+import { type ServerBuild } from "react-router";
 import { generateSitemap } from "../src";
 
 async function getUrls(response: Promise<Response>) {
@@ -21,7 +21,7 @@ describe("generateSitemap", () => {
       caseSensitive: undefined,
       module: { default: () => "" },
     };
-    const routes: ServerRouteManifest = {
+    const routes: ServerBuild["routes"] = {
       root: {
         id: "root",
         parentId: undefined,
