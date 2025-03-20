@@ -1,8 +1,8 @@
 // This is adapted from https://github.com/kentcdodds/kentcdodds.com
 
-import type { ServerBuild } from "@remix-run/server-runtime";
 import isEqual from "lodash/isEqual";
 import { SEOHandle, SitemapEntry } from "../types";
+import { ServerBuild } from "react-router";
 
 type Options = {
   siteUrl: string;
@@ -43,8 +43,9 @@ async function getSitemapXml(
 
   const rawSitemapEntries = (
     await Promise.all(
-      Object.entries(routes).map(async ([id, { module: mod }]) => {
-        if (id === "root") return;
+      Object.entries(routes).map(async ([id, route]) => {
+        if (id === "root" || !route) return;
+        const mod = route.module;
 
         const handle = mod.handle as SEOHandle | undefined;
         if (handle?.getSitemapEntries) {
