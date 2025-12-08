@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955  # v4.3.0
-      - uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e  # v4.3.0
+      - uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f  # v6.1.0
         with:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
