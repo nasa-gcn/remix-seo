@@ -77,7 +77,7 @@ async function getSitemapXml(
           const parentPath = parent.path
             ? removeTrailingSlash(parent.path)
             : "";
-          path = `${parentPath}/${path}`;
+          path = `${parentPath}${path}`;
           parentId = parent.parentId;
           parent = parentId ? routes[parentId] : null;
         }
